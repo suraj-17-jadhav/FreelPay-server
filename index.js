@@ -8,7 +8,9 @@ const connectDB = require('./config/DbConnect'); // DB connection
 
 // All routes
 const userRoutes = require('./routes/userRoutes'); 
-const clientRoutes = require('./routes/clientRoutes')      
+const clientRoutes = require('./routes/clientRoutes');
+const invoiceRoutes = require('./routes/invoiceRoutes');  
+const paymentRoutes = require('./routes/paymentRoutes');
 
 dotenv.config();
 
@@ -22,6 +24,8 @@ app.use(express.json());
 // Routes
 app.use('/api', userRoutes);
 app.use('/api',clientRoutes);
+app.use('/api',invoiceRoutes);
+app.use('/api',paymentRoutes);
 
 // Start server after DB connection
 connectDB().then(() => {
