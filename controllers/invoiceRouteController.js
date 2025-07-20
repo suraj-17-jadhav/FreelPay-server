@@ -1,4 +1,5 @@
 const Invoice = require("../models/Invoice");
+const getNextInvoiceNumber =require("../utils/getNextInvoiceNUmber")
 
 // Create Invoice
 const createInvoice = async (req, res) => {
@@ -105,10 +106,22 @@ const deleteInvoice = async (req, res) => {
   }
 };
 
+// generating unique invoice number
+const generateInvoiceNumber = async (req, res) => {
+  try {
+    const invoiceNumber = await getNextInvoiceNumber();
+    res.status(200).json({ invoiceNumber });
+  } catch (error) {
+    console.error("Error generating invoice number:", error);
+    res.status(500).json({ error: "Could not generate invoice number" });
+  }
+};
+
 module.exports = {
   createInvoice,
   getAllInvoices,
   getInvoiceById,
   updateInvoice,
   deleteInvoice,
+  generateInvoiceNumber,
 };
