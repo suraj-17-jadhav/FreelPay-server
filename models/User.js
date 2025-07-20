@@ -29,6 +29,9 @@ const userSchema = new mongoose.Schema({
   verificationToken: {
     type: String,
   },
+  profilePicture: {
+    type: String,
+  },
 }, {
   timestamps: true
 });
