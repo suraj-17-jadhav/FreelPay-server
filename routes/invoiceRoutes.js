@@ -7,11 +7,13 @@ const {
   getInvoiceById,
   updateInvoice,
   deleteInvoice,
+  generateInvoiceNumber,
 } = require("../controllers/invoiceRouteController");
 
 const authMiddleware = require("../middlewares/authMiddleware"); // if you want protected routes
 
 // Invoice routes with auth middleware
+router.get("/invoice/generate-number", authMiddleware, generateInvoiceNumber);
 router.post("/invoice", authMiddleware, createInvoice);
 router.get("/invoice", authMiddleware, getAllInvoices);
 router.get("/invoice/:id", authMiddleware, getInvoiceById);
