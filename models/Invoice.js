@@ -61,6 +61,10 @@ const invoiceSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+  reminderDatesSent: {
+    type: [Date],
+    default: []
+  },
 });
 
 module.exports = mongoose.model("Invoice", invoiceSchema);

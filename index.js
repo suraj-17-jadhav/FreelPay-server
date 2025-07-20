@@ -11,6 +11,8 @@ const invoiceRoutes = require('./routes/invoiceRoutes');
 const paymentRoutes = require('./routes/paymentRoutes');
 const profileRoutes = require('./routes/profileRoutes');
 
+require("./services/paymentReminder");
+
 dotenv.config();
 
 const app = express();
