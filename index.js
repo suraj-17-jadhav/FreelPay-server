@@ -1,5 +1,3 @@
-// index.js
-
 const express = require('express');
 const dotenv = require('dotenv');
 const cors = require('cors');
@@ -11,6 +9,7 @@ const userRoutes = require('./routes/userRoutes');
 const clientRoutes = require('./routes/clientRoutes');
 const invoiceRoutes = require('./routes/invoiceRoutes');  
 const paymentRoutes = require('./routes/paymentRoutes');
+const profileRoutes = require('./routes/profileRoutes');
 
 dotenv.config();
 
@@ -26,6 +25,7 @@ app.use('/api', userRoutes);
 app.use('/api',clientRoutes);
 app.use('/api',invoiceRoutes);
 app.use('/api',paymentRoutes);
+app.use('/api',profileRoutes);
 
 // Start server after DB connection
 connectDB().then(() => {
