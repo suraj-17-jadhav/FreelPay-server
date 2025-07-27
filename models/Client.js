@@ -10,6 +10,10 @@ const clientSchema = new mongoose.Schema({
     required: true,
     unique: true,
   },
+  countryCode: {
+    type: String,
+    required: true,
+  },
   mobile: {
     type: String,
     required: true,

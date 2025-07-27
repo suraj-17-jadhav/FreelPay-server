@@ -5,6 +5,6 @@ const {registerUser, verifyEmail, loginUser} = require('../controllers/userRoute
 //routes
 router.post('/register', registerUser);
 router.get("/verify-email", verifyEmail);
-router.get('/login', loginUser);
+router.post('/login', loginUser);
 
 module.exports = router;

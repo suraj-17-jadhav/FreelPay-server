@@ -3,9 +3,9 @@ const Client = require("../models/Client");
 // Add client
 const addClient = async (req, res) => {
   try {
-    const { name, email, mobile, country, state, pincode } = req.body;
+    const { name, email, mobile, country, countryCode, state, pincode } = req.body;
 
-    if (!name || !email || !mobile || !country || !state || !pincode) {
+    if (!name || !email || !mobile || !country || !state || !pincode || !countryCode) {
       return res.status(400).json({ error: "All fields are required" });
     }
 
@@ -15,7 +15,7 @@ const addClient = async (req, res) => {
     }
 
     const newClient = await Client.create({
-      name, email, mobile, country, state, pincode,
+      name, email, mobile, country, state, pincode, countryCode
     });
 
     res.status(201).json({ message: "Client added successfully", client: newClient });
